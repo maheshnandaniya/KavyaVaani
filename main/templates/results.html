@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Poem Result - KavyaVaani</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            background: #fff9f0;
+            padding: 20px;
+            color: #222;
+        }
+        .container {
+            max-width: 700px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #cc5500;
+        }
+        .poem {
+            white-space: pre-line;
+            margin: 20px 0;
+            font-size: 18px;
+        }
+        audio {
+            width: 100%;
+            margin-top: 20px;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #0077cc;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Your Generated Poem</h2>
+        <div class="poem">{{ poem }}</div>
+
+        {% if audio_url %}
+            <audio controls>
+                <source src="{{ audio_url }}" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        {% endif %}
+
+        <a href="{% url 'index' %}">Generate Another</a>
+    </div>
+</body>
+</html>
