@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KavyaVaani | कविता जनरेटर</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap">
+    <style>
+        body {
+            font-family: 'Baloo 2', cursive;
+            background: linear-gradient(120deg, #ffecd2 0%, #fcb69f 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 50px 20px;
+            color: #333;
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+        form {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+        }
+        label {
+            font-size: 1.2em;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            font-size: 1em;
+        }
+        button {
+            background-color: #ff5722;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1em;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #e64a19;
+        }
+    </style>
+</head>
+<body>
+    <h1>📝 KavyaVaani</h1>
+    <p>एक लाइन लिखिए, हम कविता बनाएंगे और सुनाएंगे।</p>
+
+    <form method="POST" action="{% url 'generate_poem' %}">
+        {% csrf_token %}
+        <label for="prompt">कविता का विषय:</label>
+        <input type="text" id="prompt" name="prompt" placeholder="जैसे - चाँदनी रात में अकेलापन..." required>
+        <button type="submit">कविता बनाएं 🎤</button>
+    </form>
+</body>
+</html>
